@@ -1,28 +1,21 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
-  SafeAreaView,
   TouchableOpacity,
-  TextInput,
-  Image,
-  ActivityIndicator,
-  Modal,
-  TouchableWithoutFeedback,
-  Keyboard,
   StyleSheet
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import AuthTextInput from "../../../global/textInputs/AuthTextInput";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 // const [passwordDontMatch, setPasswordDontMatch] = useState(false);
-// const [email, setEmail] = useState("");
-// const [password, setPassword] = useState("");
+
 // const [isAuth, setIsAuth] = useState(false);
 // const [visible, setVisible] = useState(true);
 
 const LoginForm = (props: any) =>{
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     // async function authenticateHandler() {
     //     try {
     //       // const token = await authenticateUser(email, password);
@@ -37,9 +30,8 @@ const LoginForm = (props: any) =>{
 
     return (
     <KeyboardAwareScrollView>
-
-        <AuthTextInput/>
-        <AuthTextInput/>
+        <AuthTextInput placeholderText={"Email"} onChangeTextFunction={setEmail} />
+        <AuthTextInput placeholderText={"Password"} onChangeTextFunction={setPassword} />
         <TouchableOpacity
           style={styles.forgotPasswordContainer}
           onPress={() => {
@@ -48,15 +40,6 @@ const LoginForm = (props: any) =>{
         >
           <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
         </TouchableOpacity>
-        {/* {passwordDontMatch ? (
-          <View style={{ alignSelf: "center" }}>
-            <Text style={{ fontFamily: "Rubik-Regular", fontSize: 16 }}>
-              Entered email and password do not match our records.
-            </Text>
-          </View>
-        ) : (
-          <View></View>
-        )} */}
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={() => {

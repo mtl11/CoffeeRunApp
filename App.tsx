@@ -6,26 +6,17 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from 'react';
-
+import LoginLayout from './components/screens/auth/login/LoginLayout';
 const Stack = createNativeStackNavigator();
 
 function AuthenticatedStack() {
   return (
-      <Navigator initialRouteName="TabNav">
-        <Screen          
-          component={SignupScreen}
-          options={{ headerShown: false }}
+      <Stack.Navigator >
+        <Stack.Screen          
+          name='LoginScreen'
+          component={LoginLayout}
         />
-        {/* <Stack.Screen
-          name="TabNav"
-          component={TabNav}
-          options={{
-            headerShown: false,
-            animation: "none",
-            gestureEnabled: false,
-          }}
-        /> */}
-      </Navigator>
+      </Stack.Navigator>
   );
 }
 
@@ -42,17 +33,6 @@ function Root() {
 }
 
 function App() {
-  let [fontsLoaded] = useFonts({
-    "Rubik-Regular": require("./assets/fonts/Rubik-Regular.ttf"),
-    "Rubik-Light": require("./assets/fonts/Rubik-Light.ttf"),
-    "Rubik-SemiBold": require("./assets/fonts/Rubik-SemiBold.ttf"),
-    "Rubik-Medium": require("./assets/fonts/Rubik-Medium.ttf"),
-  });
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <Root />
   );

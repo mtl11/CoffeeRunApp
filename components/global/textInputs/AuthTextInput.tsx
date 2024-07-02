@@ -1,13 +1,14 @@
 import { SetStateAction } from "react";
 import { TextInput, StyleSheet, View } from "react-native";
-export default () => {
+
+export default (props: { placeholderText: string, onChangeTextFunction: any}) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
         autoCapitalize={"none"}
         style={styles.input}
-        placeholder="Email"
-        // onChangeText={onChangeTextFunction}
+        placeholder={props.placeholderText}
+        onChangeText={props.onChangeTextFunction}
         autoCorrect={false}
       />
     </View>
@@ -25,5 +26,6 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginHorizontal: "8%",
     marginTop: "5%",
+    backgroundColor: "white"
   },
 });

@@ -6,12 +6,15 @@ import {
   Keyboard,
   StyleSheet,
 } from "react-native";
+import LoginForm from "./LoginForm";
 
 const LoginLayout = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View style={styles.formWrapper}></View>
+        <View style={styles.formWrapper}>
+          <LoginForm/>
+        </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>
   );

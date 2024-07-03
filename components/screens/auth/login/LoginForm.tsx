@@ -31,8 +31,8 @@ const LoginForm = (props: any) =>{
 
     return (
     <KeyboardAwareScrollView>
-        <AuthTextInput placeholderText={"Email"} onChangeTextFunction={setEmail} />
-        <AuthTextInput placeholderText={"Password"} onChangeTextFunction={setPassword} />
+        <AuthTextInput placeholderText={"email@domain.com"} onChangeTextFunction={setEmail} isPassword={false}/>
+        <AuthTextInput placeholderText={"password"} onChangeTextFunction={setPassword}isPassword={true}/>
         <TouchableOpacity
           style={styles.forgotPasswordContainer}
           onPress={() => {
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
         marginHorizontal: "8%",
         borderRadius: 12,
         marginTop: "7%",
-        backgroundColor: "#98FB98",
+        backgroundColor: "black",
       },
       buttonTextSignUp: {
         fontFamily: "Rubik-Medium",

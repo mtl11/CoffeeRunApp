@@ -1,7 +1,7 @@
 import { SetStateAction } from "react";
 import { TextInput, StyleSheet, View } from "react-native";
 
-export default (props: { placeholderText: string, onChangeTextFunction: any}) => {
+export default (props: { placeholderText: string, onChangeTextFunction: any, isPassword: boolean}) => {
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -10,6 +10,8 @@ export default (props: { placeholderText: string, onChangeTextFunction: any}) =>
         placeholder={props.placeholderText}
         onChangeText={props.onChangeTextFunction}
         autoCorrect={false}
+        placeholderTextColor={"#828282"}
+        secureTextEntry={true}
       />
     </View>
   );
@@ -17,10 +19,13 @@ export default (props: { placeholderText: string, onChangeTextFunction: any}) =>
 
 const styles = StyleSheet.create({
   input: {
-    paddingVertical: "5%",
-    marginHorizontal: "5%",
+    padding: "4%",
     fontSize: 16,
     fontFamily: "Rubik-Regular",
+    borderWidth: 1,
+    borderColor: "#E0E0E0",
+    borderRadius: 12,
+    
   },
   inputContainer: {
     borderRadius: 12,

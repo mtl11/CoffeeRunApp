@@ -23,6 +23,7 @@ const LoginLayout = (props: any) => {
 const styles = StyleSheet.create({
   container: {
     height: "100%",
+    backgroundColor:"#FFFFFF"
   },
   formWrapper: {
     flexDirection: "row",

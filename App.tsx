@@ -8,16 +8,26 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from 'react';
 import LoginLayout from './components/screens/auth/login/LoginLayout';
 import { Header } from 'react-native/Libraries/NewAppScreen';
+import TabNav from "./components/navigation/TabNav";
+
 const Stack = createNativeStackNavigator();
 
 function AuthenticatedStack() {
   return (
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator screenOptions={{headerShown: false }} initialRouteName={"TabNav"} >
         <Stack.Screen          
           name='LoginScreen'
           component={LoginLayout}
           options={{ navigationBarHidden: true}}
-          // navigationOptions: { header: { visible: false } }
+        />
+        <Stack.Screen
+          name="TabNav"
+          component={TabNav}
+          options={{
+            headerShown: false,
+            animation: "none",
+            gestureEnabled: false,
+          }}
         />
       </Stack.Navigator>
   );

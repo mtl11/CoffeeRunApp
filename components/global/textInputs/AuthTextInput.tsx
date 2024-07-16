@@ -11,7 +11,7 @@ export default (props: { placeholderText: string, onChangeTextFunction: any, isP
         onChangeText={props.onChangeTextFunction}
         autoCorrect={false}
         placeholderTextColor={"#828282"}
-        secureTextEntry={true}
+        secureTextEntry={props.isPassword}
       />
     </View>
   );

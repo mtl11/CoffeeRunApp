@@ -5,15 +5,16 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   StyleSheet,
-  ScrollView,
 } from "react-native";
+import { Feather } from "@expo/vector-icons";
 
-import NoAuthCheckIn from "./NoAuthCheckIn";
-const CheckInLayout = (props: any) => {
-    const check = false;
+const NoAuthCheckIn = (props: any) => {
   return (
-    <SafeAreaView style={styles.container}>
-    </SafeAreaView>
+    <View>
+        <View>
+            <Feather name="coffee" size={24} color="black" />
+        </View>
+    </View>
   );
 };
 
@@ -24,4 +25,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CheckInLayout;
+export default NoAuthCheckIn;

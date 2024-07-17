@@ -7,7 +7,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome, Entypo } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
-import { Feather } from '@expo/vector-icons';
+import { Feather } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 
 export default (props: any) => {
@@ -26,7 +26,7 @@ export default (props: any) => {
             );
           } else if (route.name === "Journal") {
             return (
-                <Ionicons
+              <Ionicons
                 name={focused ? "journal" : "journal-outline"}
                 size={28}
                 color={color}
@@ -40,7 +40,7 @@ export default (props: any) => {
                 color={color}
               />
             );
-          } 
+          }
         },
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "#C4C4C4",
@@ -55,12 +55,12 @@ export default (props: any) => {
     >
       <Tab.Screen
         name="Map"
-        component={CheckInLayout}
+        component={MapLayout}
         options={{ headerShown: false }}
       />
       <Tab.Screen
         name="CheckIn"
-        component={MapLayout}
+        component={CheckInLayout}
         options={{ headerShown: false }}
       />
       <Tab.Screen

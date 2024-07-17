@@ -6,10 +6,11 @@ import {
   Keyboard,
   StyleSheet,
 } from "react-native";
-
+import NoAuthJournalMessage from "./NoAuthJournalMessage";
 const JournalLayout = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
+         {true ? <NoAuthJournalMessage/> : null}
     </SafeAreaView>
   );
 };

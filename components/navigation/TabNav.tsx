@@ -6,6 +6,8 @@ import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome, Entypo } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { Feather } from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 
 export default (props: any) => {
@@ -16,44 +18,29 @@ export default (props: any) => {
         tabBarIcon: ({ focused, color, size }) => {
           if (route.name === "Map") {
             return (
-              <Ionicons
-                name={focused ? "search" : "search-outline"}
+              <Feather
+                name={focused ? "coffee" : "coffee"}
                 size={34}
                 color={color}
               />
             );
           } else if (route.name === "Journal") {
             return (
-              <Ionicons
-                name={focused ? "person" : "person-outline"}
+                <Ionicons
+                name={focused ? "journal" : "journal-outline"}
                 size={28}
                 color={color}
               />
             );
           } else if (route.name === "CheckIn") {
             return (
-              <Ionicons
-                name={focused ? "chatbubble" : "chatbubble-outline"}
+              <FontAwesome5
+                name={focused ? "plus-square" : "plus-square"}
                 size={28}
                 color={color}
               />
             );
-          } else if (route.name === "Shows") {
-            return (
-              <Ionicons
-                name={focused ? "musical-notes-sharp" : "musical-notes-outline"}
-                size={30}
-                color={color}
-              />
-            );
-          }
-          return (
-            <FontAwesome5
-              name={focused ? "musical-notes-sharp" : "musical-notes-outline"}
-              size={size}
-              color={color}
-            />
-          );
+          } 
         },
         tabBarActiveTintColor: "black",
         tabBarInactiveTintColor: "#C4C4C4",
@@ -63,22 +50,22 @@ export default (props: any) => {
           borderTopWidth: 0.5,
           borderColor: "#C4C4C4",
         },
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
       })}
     >
       <Tab.Screen
         name="Map"
         component={CheckInLayout}
-        options={{ headerShown: false,  }}
-      />
-      <Tab.Screen
-        name="Journal"
-        component={JournalLayout}
         options={{ headerShown: false }}
       />
       <Tab.Screen
         name="CheckIn"
         component={MapLayout}
+        options={{ headerShown: false }}
+      />
+      <Tab.Screen
+        name="Journal"
+        component={JournalLayout}
         options={{ headerShown: false }}
       />
     </Tab.Navigator>

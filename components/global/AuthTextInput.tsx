@@ -1,4 +1,3 @@
-import { SetStateAction } from "react";
 import { TextInput, StyleSheet, View } from "react-native";
 
 export default (props: { placeholderText: string, onChangeTextFunction: any, isPassword: boolean}) => {

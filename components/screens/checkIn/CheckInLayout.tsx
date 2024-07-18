@@ -1,18 +1,15 @@
 import React from "react";
 import {
-  View,
   SafeAreaView,
-  TouchableWithoutFeedback,
-  Keyboard,
   StyleSheet,
-  ScrollView,
 } from "react-native";
 
-import NoAuthCheckIn from "./NoAuthCheckIn";
+import NoAuthMessage from "../../global/NoAuthMessage";
 const CheckInLayout = (props: any) => {
-    const check = false;
+  
   return (
     <SafeAreaView style={styles.container}>
+      {true ? <NoAuthMessage /> : null}
     </SafeAreaView>
   );
 };
@@ -20,8 +17,8 @@ const CheckInLayout = (props: any) => {
 const styles = StyleSheet.create({
   container: {
     height: "100%",
-    backgroundColor:"#FFFFFF"
-  }
+    backgroundColor: "#FFFFFF",
+  },
 });
 
 export default CheckInLayout;

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   ActivityIndicator
 } from "react-native";
-import AuthTextInput from "../../../global/textInputs/AuthTextInput";
+import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 const LoginForm = (props: any) =>{

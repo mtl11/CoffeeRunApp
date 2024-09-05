@@ -65,7 +65,7 @@ const SignupForm = (props: any) => {
           <ActivityIndicator size={22} />
         )}
       </TouchableOpacity>
-      <View style={{opacity: .4, alignSelf:"center",  marginTop: "7%",}}>
+      <View style={{ opacity: 0.4, alignSelf: "center", marginTop: "7%" }}>
         <Text style={{ fontSize: 14 }}>- or -</Text>
       </View>
       <TouchableOpacity

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   SafeAreaView,
@@ -7,13 +7,16 @@ import {
   StyleSheet,
 } from "react-native";
 import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 
 const LoginLayout = (props: any) => {
+  const [isSignup, setIsSignup] = useState(true);
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.formWrapper}>
-          <LoginForm/>
+          {isSignup ? <SignupForm/> : <LoginForm/>}
         </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>

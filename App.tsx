@@ -15,11 +15,6 @@ const Stack = createNativeStackNavigator();
 function AuthenticatedStack() {
   return (
       <Stack.Navigator screenOptions={{headerShown: false }} initialRouteName={"TabNav"} >
-        <Stack.Screen          
-          name='LoginScreen'
-          component={LoginLayout}
-          options={{ navigationBarHidden: true}}
-        />
         <Stack.Screen
           name="TabNav"
           component={TabNav}
@@ -33,10 +28,23 @@ function AuthenticatedStack() {
   );
 }
 
+function UnAuthenticatedStack() {
+  return (
+      <Stack.Navigator screenOptions={{headerShown: false }} initialRouteName={"LoginScreen"} >
+         <Stack.Screen          
+          name='LoginScreen'
+          component={LoginLayout}
+          options={{ navigationBarHidden: true}}
+        />
+      </Stack.Navigator>
+  );
+}
+
 function Navigation() {
+  const auth = false;
   return (
     <NavigationContainer>
-      <AuthenticatedStack />
+      {auth ? <AuthenticatedStack /> : <UnAuthenticatedStack/>}
     </NavigationContainer>
   );
 }

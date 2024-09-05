@@ -10,7 +10,7 @@ import NoAuthJournalMessage from "../../global/NoAuthMessage";
 const JournalLayout = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
-         {true ? <NoAuthJournalMessage/> : null}
+         {/* {true ? <NoAuthJournalMessage/> : null} */}
     </SafeAreaView>
   );
 };

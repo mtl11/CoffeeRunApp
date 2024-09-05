@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-const NoAuthJournalMessage = (props: any) => {
+const NoAuthMessage = (props: any) => {
   return (
     <View style={styles.container}>
       <View style={{alignSelf:"center", alignItems:"center"}}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NoAuthJournalMessage;
+export default NoAuthMessage;

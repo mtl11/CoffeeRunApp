@@ -11,7 +11,7 @@ import NoAuthMessage from "../../global/NoAuthMessage";
 const MapLayout = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
-         {true ? <NoAuthMessage/> : null}
+         {/* {true ? <NoAuthMessage/> : null} */}
     </SafeAreaView>
   );
 };

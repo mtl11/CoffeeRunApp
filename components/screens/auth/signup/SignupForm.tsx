@@ -9,7 +9,8 @@ import {
 import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
-import { SvgUri, SvgCss, SvgXml } from "react-native-svg";
+import { SvgXml } from "react-native-svg";
+import GoBackButton from "../../../global/GoBackButton";
 
 const SignupForm = (props: any) => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,14 @@ const SignupForm = (props: any) => {
 
   return (
     <KeyboardAwareScrollView scrollEnabled={false}>
+      <View style={{alignSelf:"flex-start", marginBottom: "25%"}}>
+      <GoBackButton navigation={props.navigation}/>
+      </View>
+      <View
+        style={{ alignSelf: "center", alignItems: "center", margin: "2.5%" }}
+      >
+        <Feather name="coffee" size={44} color="grey" />
+      </View>
       <View
         style={{ alignSelf: "center", alignItems: "center", margin: "2.5%" }}
       >
@@ -115,7 +124,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 10.5,
     marginHorizontal: "8%",
-    borderRadius: 12,
+    borderRadius: 8,
     marginTop: "7%",
     backgroundColor: "black",
     borderWidth: 1.5,
@@ -124,7 +133,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 10.5,
     marginHorizontal: "8%",
-    borderRadius: 12,
+    borderRadius: 8,
     marginTop: "7%",
     backgroundColor: "white",
     borderWidth: 1.5,

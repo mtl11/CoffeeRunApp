@@ -70,7 +70,7 @@ const LoginForm = (props: any) => {
         <Text style={styles.newAccountText}>Don't have an account?</Text>
         <TouchableOpacity
           onPress={() => {
-            props.navigation.navigate("Signup");
+            props.navigation.navigate("SignupScreen");
           }}
         >
           <Text style={styles.buttonTextSignUp}> Sign Up</Text>

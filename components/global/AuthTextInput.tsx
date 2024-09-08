@@ -23,11 +23,10 @@ const styles = StyleSheet.create({
     fontFamily: "Rubik-Regular",
     borderWidth: 1,
     borderColor: "#E0E0E0",
-    borderRadius: 12,
-    
+    borderRadius: 8,
   },
   inputContainer: {
-    borderRadius: 12,
+    borderRadius: 8,
     marginHorizontal: "8%",
     marginTop: "5%",
     backgroundColor: "white"

@@ -7,6 +7,8 @@ import { useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React from 'react';
 import LoginLayout from './components/screens/auth/login/LoginLayout';
+import SignupLayout from './components/screens/auth/signup/SignupLayout';
+
 import { Header } from 'react-native/Libraries/NewAppScreen';
 import TabNav from "./components/navigation/TabNav";
 
@@ -34,6 +36,11 @@ function UnAuthenticatedStack() {
          <Stack.Screen          
           name='LoginScreen'
           component={LoginLayout}
+          options={{ navigationBarHidden: true}}
+        />
+        <Stack.Screen          
+          name='SignupScreen'
+          component={SignupLayout}
           options={{ navigationBarHidden: true}}
         />
       </Stack.Navigator>

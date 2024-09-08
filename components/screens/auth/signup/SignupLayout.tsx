@@ -6,16 +6,17 @@ import {
   Keyboard,
   StyleSheet,
 } from "react-native";
-import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
 import { useNavigation } from '@react-navigation/native';
 
-const LoginLayout = (props: any) => {
+const SignupLayout = (props: any) => {
   const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
         <View style={styles.formWrapper}>
-            <LoginForm navigation={navigation}/>
+            <SignupForm navigation={navigation}/>
         </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>
@@ -28,10 +29,10 @@ const styles = StyleSheet.create({
     backgroundColor:"#FFFFFF"
   },
   formWrapper: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginTop: "25%",
+    
+    // justifyContent: "center",
+    // marginTop: "25%",
   },
 });
 
-export default LoginLayout;
+export default SignupLayout;

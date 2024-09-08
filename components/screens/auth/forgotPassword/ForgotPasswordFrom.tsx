@@ -10,7 +10,7 @@ import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
 
-const LoginForm = (props: any) => {
+const ForgotPasswordFrom = (props: any) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordDontMatch, setPasswordDontMatch] = useState(false);
@@ -33,26 +33,18 @@ const LoginForm = (props: any) => {
   return (
     <KeyboardAwareScrollView scrollEnabled={false}>
       <View style={{ alignSelf: "center", alignItems: "center" }}>
-        <Feather name="coffee" size={44} color="grey" />
+        <Text style={{ fontSize: 20 , marginBottom:8}}>
+          Reset Password
+        </Text>
+        <Text style={{ fontSize: 12 }}>
+          Enter an email associated with your account.
+        </Text>
       </View>
       <AuthTextInput
         placeholderText={"email@domain.com"}
         onChangeTextFunction={setEmail}
         isPassword={false}
       />
-      <AuthTextInput
-        placeholderText={"password"}
-        onChangeTextFunction={setPassword}
-        isPassword={true}
-      />
-      <TouchableOpacity
-        style={styles.forgotPasswordContainer}
-        onPress={() => {
-          props.navigation.navigate("ForgotPasswordScreen");
-        }}
-      >
-        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
-      </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonContainer}
         onPress={() => {
@@ -60,22 +52,8 @@ const LoginForm = (props: any) => {
           authenticateHandler();
         }}
       >
-        {!isAuth ? (
-          <Text style={styles.buttonText}>Login</Text>
-        ) : (
-          <ActivityIndicator size={22} />
-        )}
+        <Text style={styles.buttonText}>Send</Text>
       </TouchableOpacity>
-      <View style={styles.newAccountContainer}>
-        <Text style={styles.newAccountText}>Don't have an account?</Text>
-        <TouchableOpacity
-          onPress={() => {
-            props.navigation.navigate("SignupScreen");
-          }}
-        >
-          <Text style={styles.buttonTextSignUp}> Sign Up</Text>
-        </TouchableOpacity>
-      </View>
     </KeyboardAwareScrollView>
   );
 };
@@ -139,4 +117,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginForm;
+export default ForgotPasswordFrom;

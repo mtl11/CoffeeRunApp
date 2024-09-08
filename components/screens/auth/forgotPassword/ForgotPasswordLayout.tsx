@@ -6,13 +6,12 @@ import {
   Keyboard,
   StyleSheet,
 } from "react-native";
-import SignupForm from "./SignupForm";
+import ForgotPasswordFrom from "./ForgotPasswordFrom";
 import { useNavigation } from "@react-navigation/native";
 import GoBackButton from "../../../global/GoBackButton";
 
-const SignupLayout = (props: any) => {
+const ForgotPasswordLayout = (props: any) => {
   const navigation = useNavigation();
-
   return (
     <SafeAreaView style={styles.container}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -20,7 +19,7 @@ const SignupLayout = (props: any) => {
           <View style={{ alignSelf: "flex-start", marginBottom: "25%" }}>
             <GoBackButton navigation={navigation} />
           </View>
-          <SignupForm navigation={navigation} />
+          <ForgotPasswordFrom navigation={navigation} />
         </View>
       </TouchableWithoutFeedback>
     </SafeAreaView>
@@ -33,9 +32,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
   },
   formWrapper: {
-    // justifyContent: "center",
+    justifyContent: "center",
     // marginTop: "25%",
   },
 });
 
-export default SignupLayout;
+export default ForgotPasswordLayout;

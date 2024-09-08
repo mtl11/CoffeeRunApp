@@ -33,9 +33,6 @@ const SignupForm = (props: any) => {
 
   return (
     <KeyboardAwareScrollView scrollEnabled={false}>
-      <View style={{alignSelf:"flex-start", marginBottom: "25%"}}>
-      <GoBackButton navigation={props.navigation}/>
-      </View>
       <View
         style={{ alignSelf: "center", alignItems: "center", margin: "2.5%" }}
       >

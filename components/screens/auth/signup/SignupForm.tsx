@@ -11,6 +11,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { Feather } from "@expo/vector-icons";
 import { SvgXml } from "react-native-svg";
 import GoBackButton from "../../../global/GoBackButton";
+import MainInput from "../../../global/MainInput";
 
 const SignupForm = (props: any) => {
   const [email, setEmail] = useState("");
@@ -58,19 +59,10 @@ const SignupForm = (props: any) => {
         onChangeTextFunction={setPassword}
         isPassword={true}
       />
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => {
+      <MainInput action={() => {
           setIsAuth(true);
           authenticateHandler();
-        }}
-      >
-        {!isAuth ? (
-          <Text style={styles.buttonText}>Sign up with email</Text>
-        ) : (
-          <ActivityIndicator size={22} />
-        )}
-      </TouchableOpacity>
+        }} text={"Sign up with Email"}/>
       <View style={{ opacity: 0.4, alignSelf: "center", marginTop: "7%" }}>
         <Text style={{ fontSize: 14 }}>- or -</Text>
       </View>

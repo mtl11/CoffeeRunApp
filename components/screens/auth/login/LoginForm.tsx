@@ -9,6 +9,7 @@ import {
 import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
+import MainInput from "../../../global/MainInput";
 
 const LoginForm = (props: any) => {
   const [email, setEmail] = useState("");
@@ -53,19 +54,13 @@ const LoginForm = (props: any) => {
       >
         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => {
+      <MainInput
+        action={() => {
           setIsAuth(true);
           authenticateHandler();
         }}
-      >
-        {!isAuth ? (
-          <Text style={styles.buttonText}>Login</Text>
-        ) : (
-          <ActivityIndicator size={22} />
-        )}
-      </TouchableOpacity>
+        text={"Login"}
+      />
       <View style={styles.newAccountContainer}>
         <Text style={styles.newAccountText}>Don't have an account?</Text>
         <TouchableOpacity

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
 import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
+import MainInput from "../../../global/MainInput";
 
 const ForgotPasswordFrom = (props: any) => {
   const [email, setEmail] = useState("");
@@ -19,6 +20,7 @@ const ForgotPasswordFrom = (props: any) => {
 
   async function authenticateHandler() {
     try {
+      console.log("pressed");
       // const token = await authenticateUser(email, password);
       setPasswordDontMatch(false);
       // authCTX.authenticate(token);
@@ -33,9 +35,7 @@ const ForgotPasswordFrom = (props: any) => {
   return (
     <KeyboardAwareScrollView scrollEnabled={false}>
       <View style={{ alignSelf: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 20 , marginBottom:8}}>
-          Reset Password
-        </Text>
+        <Text style={{ fontSize: 20, marginBottom: 8 }}>Reset Password</Text>
         <Text style={{ fontSize: 12 }}>
           Enter an email associated with your account.
         </Text>
@@ -45,15 +45,13 @@ const ForgotPasswordFrom = (props: any) => {
         onChangeTextFunction={setEmail}
         isPassword={false}
       />
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={() => {
+      <MainInput
+        action={() => {
           setIsAuth(true);
           authenticateHandler();
         }}
-      >
-        <Text style={styles.buttonText}>Send</Text>
-      </TouchableOpacity>
+        text={"Send"}
+      />
     </KeyboardAwareScrollView>
   );
 };

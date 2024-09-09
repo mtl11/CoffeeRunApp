@@ -10,6 +10,7 @@ import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
 import MainInput from "../../../global/MainInput";
+import global from "../../../../styles/global";
 
 const LoginForm = (props: any) => {
   const [email, setEmail] = useState("");
@@ -52,7 +53,7 @@ const LoginForm = (props: any) => {
           props.navigation.navigate("ForgotPasswordScreen");
         }}
       >
-        <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+        <Text style={global.linkText}>Forgot Password?</Text>
       </TouchableOpacity>
       <MainInput
         action={() => {
@@ -62,13 +63,13 @@ const LoginForm = (props: any) => {
         text={"Login"}
       />
       <View style={styles.newAccountContainer}>
-        <Text style={styles.newAccountText}>Don't have an account?</Text>
+        <Text style={global.bodyText}>Don't have an account?</Text>
         <TouchableOpacity
           onPress={() => {
             props.navigation.navigate("SignupScreen");
           }}
         >
-          <Text style={styles.buttonTextSignUp}> Sign Up</Text>
+          <Text style={global.linkText}> Sign Up</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAwareScrollView>

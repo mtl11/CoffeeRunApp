@@ -10,6 +10,7 @@ import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
 import MainInput from "../../../global/MainInput";
+import global from "../../../../styles/global";
 
 const ForgotPasswordFrom = (props: any) => {
   const [email, setEmail] = useState("");
@@ -35,8 +36,8 @@ const ForgotPasswordFrom = (props: any) => {
   return (
     <KeyboardAwareScrollView scrollEnabled={false}>
       <View style={{ alignSelf: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 20, marginBottom: 8 }}>Reset Password</Text>
-        <Text style={{ fontSize: 12 }}>
+        <Text style={global.headingText}>Reset Password</Text>
+        <Text style={global.bodyText}>
           Enter an email associated with your account.
         </Text>
       </View>
@@ -83,10 +84,6 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
   },
-  forgotPasswordText: {
-    fontFamily: "Rubik-Medium",
-    fontSize: 16,
-  },
   buttonContainer: {
     alignItems: "center",
     padding: 12,
@@ -95,23 +92,10 @@ const styles = StyleSheet.create({
     marginTop: "7%",
     backgroundColor: "black",
   },
-  buttonTextSignUp: {
-    fontFamily: "Rubik-Medium",
-    fontSize: 18,
-  },
-  buttonText: {
-    fontFamily: "Rubik-Medium",
-    color: "white",
-    fontSize: 18,
-  },
   newAccountContainer: {
     flexDirection: "row",
     justifyContent: "center",
     marginTop: "33%",
-  },
-  newAccountText: {
-    fontFamily: "Rubik-Regular",
-    fontSize: 18,
   },
 });
 

@@ -1,5 +1,6 @@
 import { TextInput, StyleSheet, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import global from "../../styles/global";
 
 export default (props: any) => {
   return (
@@ -9,7 +10,7 @@ export default (props: any) => {
         props.action();
       }}
     >
-      <Text style={styles.buttonText}>{props.text}</Text>
+      <Text style={global.buttonTextMain}>{props.text}</Text>
     </TouchableOpacity>
   );
 };
@@ -22,10 +23,5 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginTop: "7%",
     backgroundColor: "black",
-  },
-  buttonText: {
-    fontFamily: "Rubik-Medium",
-    color: "white",
-    fontSize: 18,
-  },
+  }
 });

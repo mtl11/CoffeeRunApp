@@ -5,10 +5,7 @@ export default (props: any) => {
     <TouchableOpacity style={styles.inputContainer} onPress={()=>{
         props.navigation.goBack();
     }}>
-     <Ionicons name="chevron-back" size={24} color="black" />
-     <Text style={styles.input}>
-        Back
-     </Text>
+     <Ionicons name="arrow-back" size={30} color="black" />
     </TouchableOpacity>
   );
 };

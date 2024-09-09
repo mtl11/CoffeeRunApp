@@ -12,6 +12,7 @@ import SignupLayout from "./components/screens/auth/signup/SignupLayout";
 import { Header } from "react-native/Libraries/NewAppScreen";
 import TabNav from "./components/navigation/TabNav";
 import ForgotPasswordLayout from "./components/screens/auth/forgotPassword/ForgotPasswordLayout";
+import AuthContextProvider, { AuthContext } from "./store/authContext";
 
 const Stack = createNativeStackNavigator();
 
@@ -60,7 +61,17 @@ function UnAuthenticatedStack() {
 }
 
 function Navigation() {
-  const auth = false;
+  const authCTX = useContext(AuthContext);
+
+  const [auth, setAuth] = useState(authCTX.isAuthenticated);
+
+  useEffect(() => {
+    async function checkAuthStatus() {
+      setAuth(authCTX.isAuthenticated);
+    }
+
+    checkAuthStatus();
+  }, [authCTX.isAuthenticated]);
   return (
     <NavigationContainer>
       {auth ? <AuthenticatedStack /> : <UnAuthenticatedStack />}
@@ -69,11 +80,33 @@ function Navigation() {
 }
 
 function Root() {
+  const authCTX = useContext(AuthContext);
+  const [isTryingToLogin, setIsTryingToLogin] = useState(false);
+
+  useEffect(() => {
+    async function fetchToken() {
+      // const storedToken = await AsyncStorage.getItem("token");
+      // const accessToken = await getAccessToken();
+      // // (accessToken);
+      // if (storedToken && accessToken) {
+      //   authCTX.authenticate(storedToken);
+      // } else {
+      //   authCTX.logout();
+      // }
+      setIsTryingToLogin(false);
+    }
+
+    fetchToken();
+  }, []);
+
+  if (isTryingToLogin) {
+    return null;
+  }
+
   return <Navigation />;
 }
 
 function App() {
-
   let [fontsLoaded] = useFonts({
     "Poppins-Regular": require("./assets/fonts/Poppins-Regular.ttf"),
     "Poppins-Light": require("./assets/fonts/Poppins-Light.ttf"),
@@ -85,7 +118,11 @@ function App() {
     return null;
   }
 
-  return <Root />;
+  return (
+    <AuthContextProvider>
+      <Root />
+    </AuthContextProvider>
+  );
 }
 
 export default App;

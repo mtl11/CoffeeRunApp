@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { Feather } from "@expo/vector-icons";
 import MainInput from "../../../global/MainInput";
 import global from "../../../../styles/global";
+import { AuthContext } from "../../../../store/authContext";
 
 const LoginForm = (props: any) => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ const LoginForm = (props: any) => {
   const [passwordDontMatch, setPasswordDontMatch] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
   const [visible, setVisible] = useState(true);
+  const authCTX = useContext(AuthContext);
 
   async function authenticateHandler() {
     try {
@@ -25,6 +27,7 @@ const LoginForm = (props: any) => {
       setPasswordDontMatch(false);
       // authCTX.authenticate(token);
       //   AsyncStorage.setItem("email", email);
+      authCTX.authenticate("");
       setIsAuth(false);
     } catch (error) {
       setPasswordDontMatch(true);

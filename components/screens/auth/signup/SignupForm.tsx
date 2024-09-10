@@ -12,7 +12,7 @@ import { Feather } from "@expo/vector-icons";
 import { SvgXml } from "react-native-svg";
 import GoBackButton from "../../../global/GoBackButton";
 import MainInput from "../../../global/MainInput";
-import global from "../../../../styles/global";
+import global from "../../../../styles/texts";
 
 const SignupForm = (props: any) => {
   const [email, setEmail] = useState("");

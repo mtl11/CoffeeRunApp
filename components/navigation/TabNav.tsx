@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import CheckInLayout from "../screens/checkIn/CheckInLayout";
 import JournalLayout from "../screens/journal/JournalLayout";
-import MapLayout from "../screens/map/MapLayout";
+import MapLayout from "../screens/browse/BrowseLayout";
 import React from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";

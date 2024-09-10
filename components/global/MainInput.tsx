@@ -1,6 +1,6 @@
 import { TextInput, StyleSheet, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import global from "../../styles/global";
+import global from "../../styles/texts";
 
 export default (props: any) => {
   return (

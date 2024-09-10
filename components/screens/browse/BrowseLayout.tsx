@@ -7,11 +7,11 @@ import {
   StyleSheet,
 } from "react-native";
 import NoAuthMessage from "../../global/NoAuthMessage";
-
+import BrowseHeader from "./BrowseHeader";
 const MapLayout = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
-         {/* {true ? <NoAuthMessage/> : null} */}
+        <BrowseHeader/>
     </SafeAreaView>
   );
 };

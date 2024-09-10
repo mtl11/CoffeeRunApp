@@ -10,7 +10,7 @@ import AuthTextInput from "../../../global/AuthTextInput";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { Feather } from "@expo/vector-icons";
 import MainInput from "../../../global/MainInput";
-import global from "../../../../styles/global";
+import global from "../../../../styles/texts";
 
 const ForgotPasswordFrom = (props: any) => {
   const [email, setEmail] = useState("");

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import global from "../../../styles/texts";
 import colors from "../../../styles/colors";
-import { SearchBar } from "react-native-elements";
+import HeaderSearchBar from "../../global/HeaderSearchBar";
 
 const BrowseHeader = (props: any) => {
   const [isOnMap, setIsOnMap] = useState(true);
@@ -36,41 +36,9 @@ const BrowseHeader = (props: any) => {
             
           }}
         ></TextInput> */}
-        {/* <SearchBar
-          autoCorrect={false}
-          onFocus={() => {
-            // setShowSearchList(true);
-          }}
-          onBlur={() => {
-            // setShowSearchList(false);
-          }}
-          platform="ios"
-          // onChangeText={updateSearch}
-          value={searchValue}
-          containerStyle={styles.searchContainer}
-          inputContainerStyle={{
-            // backgroundColor: colors.buttonBackgroundSecondary,
-            borderColor: "blue",
-            borderRadius: 12,
-          }}
-          inputStyle={{
-            fontSize: 16,
-            color: colors.inputColor,
-            fontFamily: "Rubik-Regular",
-          }}
-          placeholder={"Search"}
-          clearIcon={undefined}
-          searchIcon={undefined}
-          loadingProps={undefined}
-          showLoading={false}
-          onClear={undefined}
-          onCancel={undefined}
-          lightTheme={false}
-          round={false}
-          cancelButtonTitle={""}
-          cancelButtonProps={undefined}
-          showCancel={false}
-        /> */}
+        <View style={{ alignItems: "center", marginBottom:"5%" }}>
+          <HeaderSearchBar searchValue={searchValue} action={updateSearch} />
+        </View>
       </View>
 
       <View style={styles.pickerContainer}>
@@ -138,16 +106,21 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     alignSelf: "center",
     borderRadius: 8,
+    
   },
   buttonBackgroundMain: {
     backgroundColor: colors.buttonBackgroundMain,
     width: "50%",
     alignItems: "center",
+    height: 36,
+     justifyContent: "center"
   },
   buttonBackgroundSecondary: {
     backgroundColor: colors.buttonBackgroundSecondary,
     width: "50%",
     alignItems: "center",
+    height: 36,
+    justifyContent: "center"
   },
 });
 

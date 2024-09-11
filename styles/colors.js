@@ -1,6 +1,7 @@
 export default {
   buttonBackgroundMain: "black",
-  buttonBackgroundSecondary: "grey",
+  buttonBackgroundSecondary: "#E0E0E0",
   inputColor: "#E0E0E0",
   placeHolderTextColor:"#828282"
+
 };

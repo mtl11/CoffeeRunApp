@@ -8,10 +8,12 @@ import {
 } from "react-native";
 import NoAuthMessage from "../../global/NoAuthMessage";
 import BrowseHeader from "./BrowseHeader";
-const MapLayout = (props: any) => {
+import ListView from "./ListView";
+const BrowseLayout = (props: any) => {
   return (
     <SafeAreaView style={styles.container}>
         <BrowseHeader/>
+        <ListView/>
     </SafeAreaView>
   );
 };
@@ -23,4 +25,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MapLayout;
+export default BrowseLayout;

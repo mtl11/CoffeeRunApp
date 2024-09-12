@@ -6,6 +6,7 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from "react-native";
+import colors from "./colors";
 
 export default StyleSheet.create({
     buttonTextMain: {
@@ -34,7 +35,7 @@ export default StyleSheet.create({
     },
     placeholderText: {
         fontFamily: "Poppins-Regular",
-        color: "",
+        color: colors.placeHolderTextColor,
         fontSize: 14,
     },
 

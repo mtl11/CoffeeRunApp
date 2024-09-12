@@ -22,25 +22,10 @@ const BrowseHeader = (props: any) => {
   return (
     <View style={styles.container}>
       <View style={{ alignContent: "center" }}>
-        {/* <TextInput
-          autoCorrect={false}
-          placeholderTextColor={colors.placeHolderTextColor}
-          placeholder={"Search"}
-          style={{
-            borderWidth: 1,
-            borderColor: colors.buttonBackgroundMain,
-            // marginHorizontal:"10%",
-            marginVertical:"2%",
-            padding: 6,
-            borderRadius:8
-            
-          }}
-        ></TextInput> */}
         <View style={{ alignItems: "center", marginBottom:"5%" }}>
           <HeaderSearchBar searchValue={searchValue} action={updateSearch} />
         </View>
       </View>
-
       <View style={styles.pickerContainer}>
         <TouchableOpacity
           style={[
@@ -106,7 +91,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     alignSelf: "center",
     borderRadius: 8,
-    
+    marginBottom:"5%"
   },
   buttonBackgroundMain: {
     backgroundColor: colors.buttonBackgroundMain,

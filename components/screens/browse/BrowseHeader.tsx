@@ -12,7 +12,7 @@ import colors from "../../../styles/colors";
 import HeaderSearchBar from "../../global/HeaderSearchBar";
 
 const BrowseHeader = (props: any) => {
-  const [isOnMap, setIsOnMap] = useState(true);
+  // const [isOnMap, setIsOnMap] = useState(true);
   const [searchValue, setSearchValue] = useState("");
 
   function updateSearch(text: string) {
@@ -29,18 +29,18 @@ const BrowseHeader = (props: any) => {
       <View style={styles.pickerContainer}>
         <TouchableOpacity
           style={[
-            !isOnMap
+            props.showList
               ? styles.buttonBackgroundMain
               : styles.buttonBackgroundSecondary,
             { borderBottomLeftRadius: 8, borderTopLeftRadius: 8 },
           ]}
           onPress={() => {
-            setIsOnMap(false);
+            props.action(true);
           }}
         >
           <Text
             style={[
-              !isOnMap ? global.buttonTextMain : global.buttonTextSecondary,
+              props.showList ? global.buttonTextMain : global.buttonTextSecondary,
               { margin: 4 },
             ]}
           >
@@ -49,18 +49,18 @@ const BrowseHeader = (props: any) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            isOnMap
+            !props.showList
               ? styles.buttonBackgroundMain
               : styles.buttonBackgroundSecondary,
             { borderBottomRightRadius: 8, borderTopRightRadius: 8 },
           ]}
           onPress={() => {
-            setIsOnMap(true);
+            props.action(false);
           }}
         >
           <Text
             style={[
-              isOnMap ? global.buttonTextMain : global.buttonTextSecondary,
+              !props.showList ? global.buttonTextMain : global.buttonTextSecondary,
               { margin: 4 },
             ]}
           >

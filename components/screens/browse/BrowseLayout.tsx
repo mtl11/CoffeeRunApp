@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   SafeAreaView,
@@ -10,10 +10,12 @@ import NoAuthMessage from "../../global/NoAuthMessage";
 import BrowseHeader from "./BrowseHeader";
 import ListView from "./ListView";
 const BrowseLayout = (props: any) => {
+  const [showList, setShowList] = useState(true);
+
   return (
     <SafeAreaView style={styles.container}>
-        <BrowseHeader/>
-        <ListView/>
+        <BrowseHeader showList={showList}action={setShowList}/>
+        {showList ? <ListView/> : null}
     </SafeAreaView>
   );
 };

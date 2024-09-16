@@ -33,7 +33,7 @@ export default (props) => {
 
 const styles = StyleSheet.create({
   searchContainer: {
-    width: "92%",
+    width: "81%",
     // marginLeft: "3%",
     padding: 0,
     borderBottomWidth: 0,

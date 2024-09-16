@@ -10,6 +10,7 @@ import {
 import global from "../../../styles/texts";
 import colors from "../../../styles/colors";
 import HeaderSearchBar from "../../global/HeaderSearchBar";
+import Feather from '@expo/vector-icons/Feather';
 
 const BrowseHeader = (props: any) => {
   // const [isOnMap, setIsOnMap] = useState(true);
@@ -21,10 +22,13 @@ const BrowseHeader = (props: any) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ alignContent: "center" }}>
-        <View style={{ alignItems: "center", marginBottom:"5%" }}>
+        <View style={{ alignItems: "center", marginBottom:"5%" , flexDirection:"row", justifyContent:"center"}}>
           <HeaderSearchBar searchValue={searchValue} action={updateSearch} />
-        </View>
+          <TouchableOpacity style={{backgroundColor: colors.buttonBackgroundSecondary,
+        borderRadius: 12,
+        height: 40, width:"10%", alignItems:"center", justifyContent:"center", marginLeft:"1%"}}>
+          <Feather name="map-pin" size={20} color="black" />
+          </TouchableOpacity>
       </View>
       <View style={styles.pickerContainer}>
         <TouchableOpacity

@@ -8,6 +8,7 @@ import {
   ScrollView,
   FlatList,
   Text,
+  TouchableOpacity,
 } from "react-native";
 import NoAuthMessage from "../../global/NoAuthMessage";
 import BrowseHeader from "./BrowseHeader";
@@ -40,7 +41,9 @@ const ListView = (props: any) => {
   ];
 
   const Item = ({ props }) => (
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={()=>{
+        
+    }}>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text style={global.headingText}>{props.shopName}</Text>
         <Text style={global.placeholderText}>{props.distanceAway}</Text>
@@ -63,7 +66,7 @@ const ListView = (props: any) => {
           }
         })}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (

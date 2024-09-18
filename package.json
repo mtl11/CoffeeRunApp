@@ -23,7 +23,8 @@
     "react-native-elements": "^3.4.3",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-maps": "^1.18.0",
-    "react-native-svg": "^15.6.0"
+    "react-native-svg": "^15.6.0",
+    "expo-location": "~17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

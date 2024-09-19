@@ -24,15 +24,14 @@ const BrowseLayout = (props: any) => {
         setErrorMsg("Permission to access location was denied");
         return;
       }
-
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
-    })();
+    });
   }, []);
   return (
     <SafeAreaView style={styles.container}>
       <BrowseHeader showList={showList} action={setShowList} />
-      {showList ? <ListView /> : <MapView />}
+      {showList ? <ListView /> : <MapView/>}
     </SafeAreaView>
   );
 };

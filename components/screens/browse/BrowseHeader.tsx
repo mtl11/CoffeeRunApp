@@ -10,25 +10,46 @@ import {
 import global from "../../../styles/texts";
 import colors from "../../../styles/colors";
 import HeaderSearchBar from "../../global/HeaderSearchBar";
-import Feather from '@expo/vector-icons/Feather';
+import Feather from "@expo/vector-icons/Feather";
+import FilterModal from "./FilterModal";
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const BrowseHeader = (props: any) => {
   // const [isOnMap, setIsOnMap] = useState(true);
   const [searchValue, setSearchValue] = useState("");
-
+  const [showFilterModal, setShowFilterModal] = useState(false);
   function updateSearch(text: string) {
     setSearchValue(text);
   }
 
   return (
     <View style={styles.container}>
-        <View style={{ alignItems: "center", marginBottom:"5%" , flexDirection:"row", justifyContent:"center"}}>
-          <HeaderSearchBar searchValue={searchValue} action={updateSearch} />
-          <TouchableOpacity style={{backgroundColor: colors.buttonBackgroundSecondary,
-        borderRadius: 12,
-        height: 40, width:"10%", alignItems:"center", justifyContent:"center", marginLeft:"1%"}}>
-          <Feather name="map-pin" size={20} color="black" />
-          </TouchableOpacity>
+      <FilterModal showFilterModal={showFilterModal} setShowFilterModal={setShowFilterModal}/>
+      <View
+        style={{
+          alignItems: "center",
+          marginBottom: "5%",
+          flexDirection: "row",
+          justifyContent: "center",
+        }}
+      >
+        <HeaderSearchBar searchValue={searchValue} action={updateSearch} />
+        <TouchableOpacity
+          style={{
+            backgroundColor: colors.buttonBackgroundSecondary,
+            borderRadius: 12,
+            height: 40,
+            width: "10%",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "1%",
+          }}
+          onPress={() => {
+            setShowFilterModal(true);
+          }}
+        >
+          <Ionicons name="filter" size={20} color="black" />
+        </TouchableOpacity>
       </View>
       <View style={styles.pickerContainer}>
         <TouchableOpacity
@@ -44,7 +65,9 @@ const BrowseHeader = (props: any) => {
         >
           <Text
             style={[
-              props.showList ? global.buttonTextMain : global.buttonTextSecondary,
+              props.showList
+                ? global.buttonTextMain
+                : global.buttonTextSecondary,
               { margin: 4 },
             ]}
           >
@@ -64,7 +87,9 @@ const BrowseHeader = (props: any) => {
         >
           <Text
             style={[
-              !props.showList ? global.buttonTextMain : global.buttonTextSecondary,
+              !props.showList
+                ? global.buttonTextMain
+                : global.buttonTextSecondary,
               { margin: 4 },
             ]}
           >
@@ -95,21 +120,21 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     alignSelf: "center",
     borderRadius: 8,
-    marginBottom:"5%"
+    marginBottom: "5%",
   },
   buttonBackgroundMain: {
     backgroundColor: colors.buttonBackgroundMain,
     width: "50%",
     alignItems: "center",
     height: 36,
-     justifyContent: "center"
+    justifyContent: "center",
   },
   buttonBackgroundSecondary: {
     backgroundColor: colors.buttonBackgroundSecondary,
     width: "50%",
     alignItems: "center",
     height: 36,
-    justifyContent: "center"
+    justifyContent: "center",
   },
 });
 

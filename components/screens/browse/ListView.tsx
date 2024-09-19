@@ -1,17 +1,11 @@
 import React from "react";
 import {
   View,
-  SafeAreaView,
-  TouchableWithoutFeedback,
-  Keyboard,
   StyleSheet,
-  ScrollView,
   FlatList,
   Text,
   TouchableOpacity,
 } from "react-native";
-import NoAuthMessage from "../../global/NoAuthMessage";
-import BrowseHeader from "./BrowseHeader";
 import colors from "../../../styles/colors";
 import global from "../../../styles/texts";
 

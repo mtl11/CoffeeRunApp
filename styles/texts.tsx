@@ -20,9 +20,13 @@ export default StyleSheet.create({
         fontSize: 16,
     },
     headingText: {
-        fontFamily: "Poppins-Medium",
+        fontFamily: "Poppins-SemiBold",
         color: "black",
         fontSize: 18,
+    },semiHeadingText: {
+        fontFamily: "Poppins-Bold",
+        color: "black",
+        fontSize: 16,
     },bodyText: {
         fontFamily: "Poppins-Regular",
         color: "black",

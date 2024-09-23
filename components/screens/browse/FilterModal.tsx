@@ -10,9 +10,14 @@ import {
 import Feather from "@expo/vector-icons/Feather";
 import colors from "../../../styles/colors";
 import textStyles from "../../../styles/texts";
+import MainInput from "../../global/MainInput";
 const FilterModal = (props: any) => {
   const [price, setPrice] = useState("Budget");
   const [aesthetic, setAesthetic] = useState("Trendy");
+
+  const setFilter = () =>{
+    props.setShowFilterModal(false);
+  }
 
   return (
     <Modal
@@ -158,6 +163,8 @@ const FilterModal = (props: any) => {
             </View>
           </View>
         </View>
+          <MainInput text={"Apply Filters"} action={setFilter}/>
+              
       </SafeAreaView>
     </Modal>
   );
@@ -167,6 +174,7 @@ const styles = StyleSheet.create({
   modalView: {
     flex: 1,
     backgroundColor: "white",
+    flexGrow:1
   },
   fitlerRow: {
     flexDirection: "row",

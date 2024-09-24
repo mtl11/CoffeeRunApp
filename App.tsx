@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -16,7 +16,7 @@ import AuthContextProvider, { AuthContext } from "./store/authContext";
 
 const Stack = createNativeStackNavigator();
 
-function AuthenticatedStack() {
+function AuthenticatedStack(props: any) {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
@@ -62,7 +62,6 @@ function UnAuthenticatedStack() {
 
 function Navigation() {
   const authCTX = useContext(AuthContext);
-
   const [auth, setAuth] = useState(authCTX.isAuthenticated);
 
   useEffect(() => {
@@ -75,6 +74,34 @@ function Navigation() {
   return (
     <NavigationContainer>
       {auth ? <AuthenticatedStack /> : <UnAuthenticatedStack />}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={authCTX.showCheckInModal}
+        onRequestClose={()=>{authCTX.toggleCheckInModal(false)}}
+      >
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+          }}
+        >
+          <View
+            style={{
+              width: 300,
+              padding: 20,
+              backgroundColor: "white",
+              borderRadius: 10,
+              alignItems: "center",
+            }}
+          >
+            <Text>Settings Modal</Text>
+            <Button title="Close Modal" onPress={()=>{authCTX.toggleCheckInModal(false)}} />
+          </View>
+        </View>
+      </Modal>
     </NavigationContainer>
   );
 }

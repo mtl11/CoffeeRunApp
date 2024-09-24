@@ -6,20 +6,28 @@ export const AuthContext = createContext({
   isAuthenticated: false,
   authenticate: (token) => {},
   logout: () => {},
-  toggleMode: ()=>{},
+  toggleMode: () => {},
+  toggleCheckInModal: (value) => {},
+  showCheckInModal: false,
   mode: "",
-  darkMode: ""
+  darkMode: "",
 });
 
 function AuthContextProvider({ children }) {
   const [authToken, setAuthToken] = useState(false);
   const [mode, setMode] = useState("light");
   const [darkMode, setDarkMode] = useState(false);
+  const [showCheckInModal, setShowCheckInModal] = useState(false);
+
+  function toggleCheckInModal(value) {
+    console.log(showCheckInModal);
+    setShowCheckInModal(value);
+  }
   function authenticate(token) {
     // console.log(token);
     // AsyncStorage.setItem("token", token);
     // setAuthToken(token);
-    setAuthToken(!authToken)
+    setAuthToken(!authToken);
   }
   function logout() {
     setAuthToken(null);
@@ -28,17 +36,19 @@ function AuthContextProvider({ children }) {
     AsyncStorage.removeItem("profileType");
   }
 
-  function toggleMode(){
-    if (mode == "light"){
+  function toggleMode() {
+    if (mode == "light") {
       setDarkMode(true);
       setMode("dark");
-    }else if  (mode == "dark"){
+    } else if (mode == "dark") {
       setDarkMode(false);
       setMode("light");
     }
   }
 
   const value = {
+    toggleCheckInModal: toggleCheckInModal,
+    showCheckInModal: showCheckInModal,
     darkMode: darkMode,
     mode: mode,
     toggleMode: toggleMode,
@@ -48,7 +58,7 @@ function AuthContextProvider({ children }) {
     logout: logout,
   };
 
-  return <AuthContext.Provider  value={value}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 export default AuthContextProvider;

@@ -9,10 +9,10 @@ import React from "react";
 import LoginLayout from "./components/screens/auth/login/LoginLayout";
 import SignupLayout from "./components/screens/auth/signup/SignupLayout";
 
-import { Header } from "react-native/Libraries/NewAppScreen";
 import TabNav from "./components/navigation/TabNav";
 import ForgotPasswordLayout from "./components/screens/auth/forgotPassword/ForgotPasswordLayout";
 import AuthContextProvider, { AuthContext } from "./store/authContext";
+import CheckInBottomSheet from "./components/screens/checkIn/CheckInBottomSheet";
 
 const Stack = createNativeStackNavigator();
 
@@ -74,34 +74,7 @@ function Navigation() {
   return (
     <NavigationContainer>
       {auth ? <AuthenticatedStack /> : <UnAuthenticatedStack />}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={authCTX.showCheckInModal}
-        onRequestClose={()=>{authCTX.toggleCheckInModal(false)}}
-      >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-          }}
-        >
-          <View
-            style={{
-              width: 300,
-              padding: 20,
-              backgroundColor: "white",
-              borderRadius: 10,
-              alignItems: "center",
-            }}
-          >
-            <Text>Settings Modal</Text>
-            <Button title="Close Modal" onPress={()=>{authCTX.toggleCheckInModal(false)}} />
-          </View>
-        </View>
-      </Modal>
+      <CheckInBottomSheet />
     </NavigationContainer>
   );
 }

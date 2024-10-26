@@ -40,7 +40,6 @@ export default (props: any) => {
                 onPress={() => {
                   authCTX.toggleCheckInModal(true);
                 }}
-                style={{ backgroundColor: "black", flex: 1 }}
               >
                 <FontAwesome5 name={"plus-square"} size={28} color={color} />
               </TouchableOpacity>

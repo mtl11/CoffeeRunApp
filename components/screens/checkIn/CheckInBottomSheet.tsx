@@ -23,13 +23,15 @@ const CheckInBottomSheet = () => {
           flex: 1,
           justifyContent: "flex-end",
           alignContent: "flex-end",
+          alignItems: "center",
           backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       >
         <View
           style={{
             width: "80%",
-            padding: 20,
+            paddingHorizontal: 20,
+            paddingVertical: 10,
             margin: "5%",
             backgroundColor: "white",
             borderRadius: 10,
@@ -37,15 +39,18 @@ const CheckInBottomSheet = () => {
             justifyContent: "space-between",
           }}
         >
-          <View style={{ flexDirection: "row" }}>
-            <View style={{width: "100%",
-      justifyContent: "center",
-      alignItems: "center"}}>
-            <Text style={texts.semiHeadingText}>Start Creating</Text>
-
+          <View style={{ flexDirection: "row", marginHorizontal: "5%" }}>
+            <View
+              style={{
+                width: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={[texts.placeholderText, {fontSize: 16}]}>Start Creating</Text>
             </View>
             <TouchableOpacity
-              style={{ }}
+              style={{}}
               onPress={() => {
                 authCTX.toggleCheckInModal(false);
               }}
@@ -54,7 +59,7 @@ const CheckInBottomSheet = () => {
             </TouchableOpacity>
           </View>
 
-          <View style={{ justifyContent: "space-evenly" }}>
+          <View style={{ justifyContent: "space-evenly", marginVertical: "5%" }}>
             <MainInput text={"Add Pin"} action={navigateToAddPin} />
           </View>
         </View>

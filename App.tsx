@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { Button, Modal, StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -13,25 +13,38 @@ import TabNav from "./components/navigation/TabNav";
 import ForgotPasswordLayout from "./components/screens/auth/forgotPassword/ForgotPasswordLayout";
 import AuthContextProvider, { AuthContext } from "./store/authContext";
 import CheckInBottomSheet from "./components/screens/checkIn/CheckInBottomSheet";
+import CheckInLayout from "./components/screens/checkIn/CheckInLayout";
 
 const Stack = createNativeStackNavigator();
 
 function AuthenticatedStack(props: any) {
+  const navigation = useNavigation();
   return (
-    <Stack.Navigator
-      screenOptions={{ headerShown: false }}
-      initialRouteName={"TabNav"}
-    >
-      <Stack.Screen
-        name="TabNav"
-        component={TabNav}
-        options={{
-          headerShown: false,
-          animation: "none",
-          gestureEnabled: false,
-        }}
-      />
-    </Stack.Navigator>
+    <>
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName={"TabNav"}
+      >
+        <Stack.Screen
+          name="CheckInScreen"
+          component={CheckInLayout}
+          options={{
+            headerShown: false,
+            animation: "none",
+          }}
+        />
+        <Stack.Screen
+          name="TabNav"
+          component={TabNav}
+          options={{
+            headerShown: false,
+            animation: "none",
+            gestureEnabled: false,
+          }}
+        />
+      </Stack.Navigator>
+      <CheckInBottomSheet navigation={navigation}/>
+    </>
   );
 }
 
@@ -74,7 +87,6 @@ function Navigation() {
   return (
     <NavigationContainer>
       {auth ? <AuthenticatedStack /> : <UnAuthenticatedStack />}
-      <CheckInBottomSheet />
     </NavigationContainer>
   );
 }

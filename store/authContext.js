@@ -8,7 +8,9 @@ export const AuthContext = createContext({
   logout: () => {},
   toggleMode: () => {},
   toggleCheckInModal: (value) => {},
+  toggleCheckInScreen: (value) => {},
   showCheckInModal: false,
+  showCheckInScreen: false,
   mode: "",
   darkMode: "",
 });
@@ -18,10 +20,16 @@ function AuthContextProvider({ children }) {
   const [mode, setMode] = useState("light");
   const [darkMode, setDarkMode] = useState(false);
   const [showCheckInModal, setShowCheckInModal] = useState(false);
+  const [showCheckInScreen, setShowCheckInScreen] = useState(false);
 
   function toggleCheckInModal(value) {
     console.log(showCheckInModal);
     setShowCheckInModal(value);
+  }
+
+  function toggleCheckInScreen(value) {
+    console.log(showCheckInScreen);
+    setShowCheckInScreen(value);
   }
   function authenticate(token) {
     // console.log(token);
@@ -56,6 +64,7 @@ function AuthContextProvider({ children }) {
     isAuthenticated: !!authToken,
     authenticate: authenticate,
     logout: logout,
+    toggleCheckInScreen: toggleCheckInScreen
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

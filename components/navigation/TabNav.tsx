@@ -76,7 +76,7 @@ export default (props: any) => {
               accessibilityLabel={options.tabBarAccessibilityLabel}
               testID={options.tabBarTestID}
               onPress={onPress}
-              style={{ marginBottom: "5%", marginTop: "2%" }}
+              style={{ marginBottom: "8%", marginTop: "2%" }}
             >
               {getIcon(route.name, isFocused)}
             </TouchableOpacity>

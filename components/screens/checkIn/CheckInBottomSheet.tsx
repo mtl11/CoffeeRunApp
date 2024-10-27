@@ -6,12 +6,15 @@ import colors from "../../../styles/colors";
 import { Feather } from "@expo/vector-icons";
 import texts from "../../../styles/texts";
 
-const CheckInBottomSheet = () => {
+const CheckInBottomSheet = (props: any) => {
   const authCTX = useContext(AuthContext);
-  const navigateToAddPin = () => {};
+  const navigateToAddPin = async () => {
+    await authCTX.toggleCheckInModal(false);
+    props.navigation.navigate("CheckInScreen");
+  };
   return (
     <Modal
-      animationType="fade"
+      animationType="none"
       transparent={true}
       visible={authCTX.showCheckInModal}
       onRequestClose={() => {
@@ -29,14 +32,13 @@ const CheckInBottomSheet = () => {
       >
         <View
           style={{
-            width: "80%",
+            width: "88%",
             paddingHorizontal: 20,
-            paddingVertical: 10,
-            margin: "5%",
+            paddingTop: 10,
+            marginBottom: "5%",
             backgroundColor: "white",
             borderRadius: 10,
             height: "15%",
-            justifyContent: "space-between",
           }}
         >
           <View style={{ flexDirection: "row", marginHorizontal: "5%" }}>
@@ -47,7 +49,9 @@ const CheckInBottomSheet = () => {
                 alignItems: "center",
               }}
             >
-              <Text style={[texts.placeholderText, {fontSize: 16}]}>Start Creating</Text>
+              <Text style={[texts.placeholderText, { fontSize: 16 }]}>
+                Start Creating
+              </Text>
             </View>
             <TouchableOpacity
               style={{}}
@@ -55,11 +59,13 @@ const CheckInBottomSheet = () => {
                 authCTX.toggleCheckInModal(false);
               }}
             >
-              <Feather name={"x"} size={20} color={"black"} />
+              <Feather name={"x"} size={24} color={"black"} />
             </TouchableOpacity>
           </View>
 
-          <View style={{ justifyContent: "space-evenly", marginVertical: "5%" }}>
+          <View
+            style={{ justifyContent: "space-evenly" }}
+          >
             <MainInput text={"Add Pin"} action={navigateToAddPin} />
           </View>
         </View>

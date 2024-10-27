@@ -7,55 +7,89 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { AuthContext } from "../../store/authContext";
-import { TouchableOpacity } from "react-native";
+import { View, Text,TouchableOpacity } from "react-native";
+import colors from "../../styles/colors";
 const Tab = createBottomTabNavigator();
 
 export default (props: any) => {
   const authCTX = useContext(AuthContext);
 
+  function getIcon(tabName: string, focused: boolean){
+    const color = focused ? "black" : colors.placeHolderTextColor; 
+    if (tabName === "Map") {
+      return (
+        <Feather
+          name={focused ? "coffee" : "coffee"}
+          size={34}
+          color={color}
+        />
+      );
+    } else if (tabName === "Journal") {
+      return (
+        <Ionicons
+          name={focused ? "journal" : "journal-outline"}
+          size={28}
+          color={color}
+        />
+      );
+    } else if (tabName === "CheckIn") {
+      return (
+        <TouchableOpacity
+          onPress={() => {
+            authCTX.toggleCheckInModal(true);
+          }}
+        >
+          <FontAwesome5 name={"plus"} size={28} color={color} />
+        </TouchableOpacity>
+      );
+    }
+  }
+
+  function MyTabBar({ state, descriptors, navigation }) {
+    return (
+      <View style={{ flexDirection: 'row', alignItems: "center",
+            justifyContent: "space-around",
+            borderTopWidth: 0.5,
+            borderColor: "#C4C4C4",
+            alignContent: "space-between",
+          }}>
+        {state.routes.map((route, index) => {
+          const { options } = descriptors[route.key];
+  
+          const isFocused = state.index === index;
+  
+          const onPress = () => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
+  
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name, route.params);
+            }
+          };
+  
+          return (
+            <TouchableOpacity
+              accessibilityState={isFocused ? { selected: true } : {}}
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+              testID={options.tabBarTestID}
+              onPress={onPress}
+              style={{ marginBottom: "5%", marginTop: "2%" }}
+            >
+              {getIcon(route.name, isFocused)}
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
+  }
+
   return (
     <Tab.Navigator
       initialRouteName="Map"
-      screenOptions={({ navigation, route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          if (route.name === "Map") {
-            return (
-              <Feather
-                name={focused ? "coffee" : "coffee"}
-                size={34}
-                color={color}
-              />
-            );
-          } else if (route.name === "Journal") {
-            return (
-              <Ionicons
-                name={focused ? "journal" : "journal-outline"}
-                size={28}
-                color={color}
-              />
-            );
-          } else if (route.name === "CheckIn") {
-            return (
-              <TouchableOpacity
-                onPress={() => {
-                  authCTX.toggleCheckInModal(true);
-                }}
-              >
-                <FontAwesome5 name={"plus-square"} size={28} color={color} />
-              </TouchableOpacity>
-            );
-          }
-        },
-        tabBarActiveTintColor: "black",
-        tabBarInactiveTintColor: "#C4C4C4",
-        tabBarStyle: {
-          alignItems: "center",
-          // justifyContent: "center",
-          borderTopWidth: 0.5,
-          borderColor: "#C4C4C4",
-          alignContent: "space-between",
-        },
-      })}
+      tabBar={props => <MyTabBar {...props} />}
     >
       <Tab.Screen
         name="Map"

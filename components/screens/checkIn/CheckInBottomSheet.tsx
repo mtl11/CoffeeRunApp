@@ -35,7 +35,7 @@ const CheckInBottomSheet = () => {
             margin: "5%",
             backgroundColor: "white",
             borderRadius: 10,
-            height: "20%",
+            height: "15%",
             justifyContent: "space-between",
           }}
         >
